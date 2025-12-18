@@ -1,25 +1,50 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { signOut } from "firebase/auth";
-import {auth} from "../utils/firebase"
+import { auth } from "../utils/firebase";
 import { useNavigate } from 'react-router-dom';
+import { onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from 'react-redux';
+import { addUser, removeUser } from '../utils/userSlice';
+import { LOGO , DP } from '../utils/constants';
 
 const Header = () => {
   const navigate = useNavigate();
-  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName } = user;
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+        navigate("/browse");
+
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
   const handleSignOut = () => {
     signOut(auth).then(() => {
       navigate("/")
     }).catch((error) => {
-     navigate("/error");
+      navigate("/error");
     });
   }
   return (
 
     <div className='absolute w-screen px-12 bg-gradient-to-b from-black z-50 flex justify-between'>
-      <img className='w-60' src='https://images.ctfassets.net/y2ske730sjqp/6bhPChRFLRxc17sR8jgKbe/6fa1c6e6f37acdc97ff635cf16ba6fb3/Logos-Readability-Netflix-logo.png'
+      <img className='w-60' src={LOGO}
       />
 
-      <button onClick={handleSignOut} className='font-bold text-2xl text-white'>Sign Out</button>
+      <div className='flex items-center gap-4'>
+        <img className='w-10 h-10' src = {DP} />
+        <button onClick={handleSignOut} className='font-bold text-2xl text-white'>Sign Out</button>
+      </div>
+
+      
     </div>
   );
 }
