@@ -6,6 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
 import { LOGO , DP } from '../utils/constants';
+import { toggleGptSearchView } from '../utils/gptSlice';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -33,6 +34,11 @@ const Header = () => {
       navigate("/error");
     });
   }
+
+const handleGptSearchClick = () => {
+  dispatch(toggleGptSearchView())
+}
+
   return (
 
     <div className='absolute w-screen px-12 bg-gradient-to-b from-black z-50 flex justify-between'>
@@ -40,6 +46,7 @@ const Header = () => {
       />
 
       <div className='flex items-center gap-4'>
+        <button onClick={handleGptSearchClick} className='text-white bg-red-500 rounded-lg p-2'>GPT Search</button>
         <img className='w-10 h-10' src = {DP} />
         <button onClick={handleSignOut} className='font-bold text-2xl text-white'>Sign Out</button>
       </div>
