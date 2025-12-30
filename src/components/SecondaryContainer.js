@@ -9,7 +9,7 @@ const SecondaryContainer = () => {
    if(!movie) return null;
 
     const secMovie = movie[0];
-    console.log(secMovie);
+    // console.log(secMovie);
 
   return (
     <div className='bg-black'>
