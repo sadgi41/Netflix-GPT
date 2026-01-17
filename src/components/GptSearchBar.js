@@ -43,8 +43,8 @@ dispatch(addGptMovieResult({movieNames: gptMovies , movieResults: tmdbResults}))
   return (
     <div>
       <form onSubmit={(e) => e.preventDefault()} className='flex gap-6 justify-center items-center pt-36'>
-        <input ref={searchText} className='rounded-lg bg-black opacity-90 text-white placeholder-slate-400 text-center w-1/3 h-14' type='text' placeholder='What would you like to watch today?' />
-        <button onClick={handleGptSearchClick} className='rounded-lg bg-red-500 text-lg text-white w-24 h-12'>Search</button>
+        <input ref={searchText} className='rounded-lg bg-black opacity-90 text-white placeholder-slate-400 text-center w-auto h-10 md:w-1/3 md:h-14' type='text' placeholder='What would you like to watch today?' />
+        <button onClick={handleGptSearchClick} className='rounded-lg bg-red-500 text-md md:text-lg text-white h-9 w-24 md:h-12'>Search</button>
       </form>
     </div>
   )

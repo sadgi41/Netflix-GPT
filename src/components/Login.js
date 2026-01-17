@@ -62,12 +62,12 @@ const Login = () => {
         <div>
             <Header />
             <div className='absolute'>
-                <img className="" src= {BGIMAGE}
+                <img className="h-screen object-cover md:h-auto" src= {BGIMAGE}
                 />
             </div>
             <div className='flex justify-center '>
                 <form onSubmit={(e) => e.preventDefault()}
-                    className='absolute bg-black bg-opacity-75 w-3/12 p-12  my-36 mx-auto left-0 right-0 text-white rounded-lg'>
+                    className='absolute bg-black bg-opacity-75 w-auto md:w-3/12 p-12  my-36 mx-auto left-0 right-0 text-white rounded-lg'>
 
                     <h1 className='text-3xl py-4'>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
 
