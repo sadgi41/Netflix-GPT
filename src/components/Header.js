@@ -53,6 +53,7 @@ const handleGptSearchClick = () => {
 
       
     </div>
+   
   );
 }
 
