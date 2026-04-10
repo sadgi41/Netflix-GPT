@@ -42,12 +42,12 @@ const handleGptSearchClick = () => {
   return (
 
     <div className='absolute w-screen px-12 bg-gradient-to-b from-black z-50 flex flex-col items-center md:flex-row justify-between'>
-      <img className=' w-32 md:w-60' src={LOGO}
+      <img className=' w-32 md:w-60' src={LOGO} alt=""
       />
 
       <div className='flex items-center gap-4'>
         <button onClick={handleGptSearchClick} className='text-white bg-red-500 rounded-lg p-2'>GPT Search</button>
-        <img className='md:w-10 md:h-10 md:inline-block hidden' src = {DP} />
+        <img className='md:w-10 md:h-10 md:inline-block hidden' src = {DP} alt="" />
         <button onClick={handleSignOut} className='font-bold text-lg md:text-2xl text-white'>Sign Out</button>
       </div>
 
