@@ -62,7 +62,7 @@ const Login = () => {
         <div>
             <Header />
             <div className='absolute'>
-                <img className="h-screen object-cover md:h-auto" src= {BGIMAGE}
+                <img className="h-screen object-cover md:h-auto" src= {BGIMAGE} alt=""
                 />
             </div>
             <div className='flex justify-center '>
