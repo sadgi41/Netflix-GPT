@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# Netflix-GPT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Netflix-GPT is a Netflix-inspired movie browsing app built with React, Redux, Firebase Authentication, TMDB, and OpenAI. It combines a familiar streaming-style interface with AI-powered movie suggestions, allowing users to browse trending content or search for movie recommendations using natural language.
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+[Live Site](https://netflix-gpt-sable-delta.vercel.app)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open https://netflix-gpt-sable-delta.vercel.app/ to view it in your browser.
+- Netflix-style UI for a familiar streaming experience
+- User authentication with Firebase
+- Sign up and sign in flow with client-side validation
+- Browse page with multiple movie categories
+- Now Playing movies
+- Popular movies
+- Top Rated movies
+- Upcoming movies
+- Featured hero section with trailer background
+- GPT-powered movie recommendation search
+- TMDB-powered movie lookup for suggested titles
+- Global state management with Redux Toolkit
+- Responsive styling with Tailwind CSS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- React
+- React Router
+- Redux Toolkit
+- Firebase Authentication
+- OpenAI API
+- TMDB API
+- Tailwind CSS
+- Create React App
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
 
-### `npm run build`
+```bash
+src/
+  components/
+    Body.js
+    Browse.js
+    GptSearch.js
+    GptSearchBar.js
+    GptMovieSuggestion.js
+    Header.js
+    Login.js
+    MainContainer.js
+    MovieCard.js
+    MovieList.js
+    SecondaryContainer.js
+    VideoBackground.js
+    VideoTitle.js
+  hooks/
+    useMovieTrailer.js
+    useNowPlayingMovie.js
+    usePopularMovie.js
+    useTopRatedMovie.js
+    useUpcomingMovie.js
+  utils/
+    appStore.js
+    constants.js
+    firebase.js
+    gptSlice.js
+    movieSlice.js
+    openAi.js
+    userSlice.js
+    validate.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+How It Works
+Authentication
+Users can sign up and sign in using Firebase Authentication. The login form validates email format and password strength before submitting.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Movie Browsing
+After login, the app loads different movie categories from TMDB using custom hooks and stores them in Redux.
 
-### `npm run eject`
+GPT Search
+The GPT search bar accepts a natural language prompt such as what the user wants to watch. OpenAI returns recommended movie names, and the app then searches those titles on TMDB to show actual movie results.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Environment Variables
+Create a .env file in the root of the project and add:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+REACT_APP_TMDB_API_KEY=your_tmdb_bearer_token
+REACT_APP_OPENAI_API_KEY=your_openai_api_key
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Installation
+git clone https://github.com/sadgi41/Netflix-GPT.git
+cd Netflix-GPT
+npm install
+npm start
+Available Scripts
+npm start
+npm run build
+npm test
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Future Improvements
+Move OpenAI requests to a backend for better API key security
+Add loading and error states across API flows
+Add user profile personalization
+Add watchlist and favorites
+Improve accessibility and keyboard navigation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Author
+Sadgi Jain
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+GitHub: sadgi41
